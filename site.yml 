@@ -1,0 +1,23 @@
+---
+
+- name: this is for common configuration
+  hosts: all
+  remote_user:root
+
+  roles:
+  	- common 
+
+- name: configure and deploy the webservers and the application code.
+  hosts: webservers
+  remote_user: root
+
+  roles:
+  	- web
+
+- name: deploy mysql and configure the databases
+  hosts: dbservers
+  remote_user: root
+
+  roles:
+  	- db
+  	
